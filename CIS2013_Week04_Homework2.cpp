@@ -14,36 +14,7 @@ bool Run_Eval = false;
 int player_total = 0;
 int dealer_total = 0;
 
-int Evaluation(){
-	
-	char yes_no = 'a';
-	//int player_total = 0;
-	//int dealer_total = 0;
-	//int player_total = 0;
-	//int dealer_total = 0;
-	
-		while (Run_Eval){
-				cout << "Your total is: " << player_total << endl;
-				cout << "The Dealer's total is: " << dealer_total << endl;
-				if (player_total <= dealer_total){
-					cout << "DEALER WINS!!!" << endl;
-					cout << "Would you like to play again? y or n" << endl;
-					cin >> yes_no;
-					}
-				if (player_total > dealer_total){
-					cout << "!!!YOU WIN!!!" << endl;
-					cout << "Would you like to play again? y or n" << endl;
-					cin >> yes_no;
-				}
-			
-			if (yes_no == 'n'){
-				int main(keep_playing = false);
-			}
-			if (yes_no == 'y'){
-				int main(keep_playing = true);
-			}
-		}
-}
+
 
 int Player_hand(int player_first_card, int player_second_card, int player_total){
 	/*bool player_stay = false;
@@ -84,10 +55,10 @@ int Player_hand(int player_first_card, int player_second_card, int player_total)
 					cin >> yes_no;
 				}
 				if (yes_no == 'n'){
-				int main(keep_playing = false);
+				keep_playing = false;
 				}
 				if (yes_no == 'y'){
-				int main(keep_playing = true);
+				keep_playing = true;
 				}
 				
 			}
@@ -136,11 +107,39 @@ int Dealer_hand(int dealer_first_card){
 					}	
 					
 			}	
-			if ((dealer_stay == true) && (dealer_bust == false)) {
-			Run_Eval = true;
-			//Evaluation(dealer_total);
-		}	
 			
+			
+}
+
+int Evaluation(int go){
+	
+	char yes_no = 'a';
+	//int player_total = 0;
+	//int dealer_total = 0;
+	//int player_total = 0;
+	//int dealer_total = 0;
+	
+		if (go == 1){
+				cout << "Your total is: " << player_total << endl;
+				cout << "The Dealer's total is: " << dealer_total << endl;
+				if (player_total <= dealer_total){
+					cout << "DEALER WINS!!!" << endl;
+					cout << "Would you like to play again? y or n" << endl;
+					cin >> yes_no;
+					}
+				if (player_total > dealer_total){
+					cout << "!!!YOU WIN!!!" << endl;
+					cout << "Would you like to play again? y or n" << endl;
+					cin >> yes_no;
+				}
+			
+			if (yes_no == 'n'){
+				keep_playing = false;
+			}
+			if (yes_no == 'y'){
+				keep_playing = true;
+			}
+		}
 }
 
 
@@ -157,18 +156,22 @@ int main() {
 		int dealer_first_card = rand() % 10 + 1;
 		int player_second_card = rand() % 10 + 1;
 		//int player_total = 0;
-		
+		int go = 1;
 		
 				
 		cout << "your first cards are " << player_first_card <<" and " 
 			<< player_second_card << endl;
 		player_total = player_first_card + player_second_card;
 		cout << " for a total of: " << player_total << endl;
+		cout << "The dealers first card is " << dealer_first_card << endl;
 		Player_hand(player_first_card, player_second_card, player_total);
 		
+		
 		if (Dealer_turn == true){	
-		cout << "The dealers first card is " << dealer_first_card << endl;
-		Dealer_hand(dealer_first_card);
+			Dealer_hand(dealer_first_card);
+		}
+		if ((dealer_stay == true) && (dealer_bust == false)) {
+			Evaluation(go);
 		}
 		if ((player_bust == false) && (dealer_bust == false)){
 			
