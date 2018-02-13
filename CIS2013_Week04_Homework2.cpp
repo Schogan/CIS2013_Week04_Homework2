@@ -18,12 +18,7 @@ int dealer_total = 0;
 
 
 int Player_hand(int Player_Start){
-	/*bool player_stay = false;
-	bool player_bust = false;
-	bool Dealer_turn = false;
-	bool keep_playing = false;*/
-
-	
+		
 	if(Player_Start == 1){ 
 		char stay_hit = 'a';
 		char yes_no = 'a';
@@ -76,17 +71,13 @@ int Player_hand(int Player_Start){
 		}
 			if ((player_stay == true) && (player_bust == false)) {
 				Dealer_turn = true;
-				//Evaluation(player_total);
 			}
 	}		
 }
 int Dealer_hand(int Dealer_Start){
-	/*bool dealer_stay = false;
-	bool dealer_bust = false;
-	bool keep_playing = false;*/
+	
 	int dealer_first_card = rand() % 10 + 1;
 	int dealer_second_card = rand() % 10 + 1;
-	//int dealer_total = 0;
 	char yes_no = 'a';
 	
 	if (Dealer_Start == 1){
@@ -130,10 +121,7 @@ int Dealer_hand(int Dealer_Start){
 int Evaluation(int Eval){
 	
 	char yes_no = 'a';
-	//int player_total = 0;
-	//int dealer_total = 0;
-	//int player_total = 0;
-	//int dealer_total = 0;
+	
 	
 		if (Eval == 1){
 				cout << "Your total is: " << player_total << endl;
@@ -142,27 +130,11 @@ int Evaluation(int Eval){
 					cout << "DEALER WINS!!!" << endl;
 					cout << "Would you like to play again? y or n" << endl;
 					cin >> yes_no;
-					/*bool player_bust = false;
-					bool dealer_bust = false;
-					bool player_stay = false;
-					bool dealer_stay = false;
-					bool Dealer_turn = false;
-					bool Run_Eval = false;
-					//int player_total = 0;
-					int dealer_total = 0;*/
-					}
+				}
 				if (player_total > dealer_total){
 					cout << "!!!YOU WIN!!!" << endl;
 					cout << "Would you like to play again? y or n" << endl;
 					cin >> yes_no;
-					/*bool player_bust = false;
-					bool dealer_bust = false;
-					bool player_stay = false;
-					bool dealer_stay = false;
-					bool Dealer_turn = false;
-					bool Run_Eval = false;
-					//int player_total = 0;
-					int dealer_total = 0;*/
 				}
 			
 			if (yes_no == 'n'){
@@ -178,23 +150,19 @@ int Evaluation(int Eval){
 
 int main() {
 	
-	/*bool keep_playing = true;
-	bool player_bust = false;
-	bool dealer_bust = false;
-	bool Dealer_turn = false;*/
 	while (keep_playing) {
 		
 		srand(time(NULL));
 		
 		
 		
-		//int player_total = 0;
+		
 		int Eval = 1;
 		int Player_Start = 1;
 		int Dealer_Start = 1;
 		char Start = 'a';
 				
-		cout << "Would you like to play a game? y or n" << endl;
+		cout << "WOULD YOU LIKE TO PLAY A GAME? y or n" << endl;
 		cin >> Start;
 		
 		player_bust = false;
@@ -221,12 +189,7 @@ int main() {
 		if ((dealer_stay == true) && (dealer_bust == false)) {
 			Evaluation(Eval);
 		}
-		//if ((player_bust == false) && (dealer_bust == false)){
-			
-		//}
-		
-		
-						
+								
 	}
 	
 	return 0;
